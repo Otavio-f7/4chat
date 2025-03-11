@@ -5,7 +5,7 @@ import 'package:chat/core/services/chat/chat_mock_service.dart';
 abstract class ChatService{
 
   Stream<List<ChatMassage>> messagesStream();
-  Future<ChatMassage> save(String text, ChatUser user);
+  Future<ChatMassage?> save(String text, ChatUser user);
 
   factory ChatService(){
     return ChatMockService();
