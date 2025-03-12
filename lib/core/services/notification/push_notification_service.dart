@@ -29,12 +29,13 @@ class ChatNotificationService with ChangeNotifier{
   }
   Future<bool> get _isAuthorized async{
     final messaging = FirebaseMessaging.instance;
-    final settings = await messaging.requestPermission();
+    final settings = await messaging.requestPermission(provisional: true);
     return settings.authorizationStatus == AuthorizationStatus.authorized;
   }
   Future<void> _configureForeground() async{
     if(await _isAuthorized){
       FirebaseMessaging.onMessage.listen((msg){
+        if(msg.notification == null) return;
         add(ChatNotification(
           title: msg.notification!.title ?? 'Não informado', 
           body: msg.notification!.body ?? 'Não informado',

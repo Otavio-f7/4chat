@@ -21,7 +21,7 @@ class AuthOrAppPage extends StatelessWidget {
         projectId: FirebaseCredentials.projectId
       ),
     );
-    Provider.of<ChatNotificationService>(context, listen: false).init();
+    await Provider.of<ChatNotificationService>(context, listen: false).init();
   }
 
   @override
