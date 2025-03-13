@@ -14,12 +14,12 @@ class AuthOrAppPage extends StatelessWidget {
 
   Future<void> init(BuildContext context) async{
     await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: FirebaseCredentials.apiKey, 
-        appId: FirebaseCredentials.appId, 
-        messagingSenderId: FirebaseCredentials.messagingSenderId, 
-        projectId: FirebaseCredentials.projectId
-      ),
+      // options: const FirebaseOptions(
+      //   apiKey: FirebaseCredentials.apiKey, 
+      //   appId: FirebaseCredentials.appId, 
+      //   messagingSenderId: FirebaseCredentials.messagingSenderId, 
+      //   projectId: FirebaseCredentials.projectId
+      // ),
     );
     await Provider.of<ChatNotificationService>(context, listen: false).init();
   }
